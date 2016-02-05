@@ -70,6 +70,7 @@ module.exports = function (grunt) {
 
     var options = this.options({
       rootDir: "./",
+      processConfig: true,
       defaultTsConfig: {
         "compilerOptions": {
           "target": "es5",
@@ -84,7 +85,9 @@ module.exports = function (grunt) {
         "files": []
       }
     });
-    processTsConfig();
+    if (options.processConfig) {
+      processTsConfig();
+    }
     compileTypeScript(this.async());
   });
 };
